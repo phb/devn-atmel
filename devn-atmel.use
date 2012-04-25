@@ -1,0 +1,31 @@
+%C Driver for ATMEL WLAN compatible WiFi controllers
+
+Syntax:
+  io-net -d atmel [option[,option ...]] ... &
+
+Options (to override autodetected defaults):
+  verbose             Be verbose. 
+  promiscuous         Enable promiscuous mode.
+  nomulticast         Disable multicast support.
+	ssid=name						Set the SSID (network name) to connect/create
+	channel=num					802.11 channel to use.  Scans in normal mode.
+	rts_thresh=num			Set the RTS threshold.  Should be the same as the
+											access point or the other cards being used in the network.
+	opmode=num					Operating mode, 0=AD_HOC,1=Infrastructure(AP),2=Auto
+	default_key=[1-4]		Which of the keys given by key[1-4] to use for WEP.			
+	key[1-4]=KEY				Setup one of the 4 default WEP keys. (If you setup no key, WEP will be disabled.) 
+											Where KEY can either be a Hexadeciamal string (start string with 0x) or ASCII. 5 or 13 ascii or 10/26 Hex.
+											For example, key1=0x0102030405.
+	wepmode=[0,1]				If WEP is mandatory(1) or optional(0)
+	authtype=[0,1]			Open System(0), Shared Key(1)
+	preambletype=[0-2]	Long Preamble(0),Short Preamble(1), Auto Preamble(2)
+	pwrmgmtmode=[0,1]		Normal mode(0), Power save(1)
+	beaconperiod=num		XXX...
+	irq=num							This option is REQUIRED.
+	ioport=num					This option is REQUIRED.
+
+Examples:
+  # Start io-net using the ATMEL WLAN driver and the full TCP/IP stack: 
+  io-net -d atmel irq=X,ioport=0xXXX -p tcpip
+  ifconfig en0 10.184
+

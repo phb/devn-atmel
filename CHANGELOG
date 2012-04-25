@@ -1,0 +1,9 @@
+
+0.5: (2004/03/23) 
+	* TX working!!
+	* Statistics for nicinfo. Partly implemented.
+	* Commandline parsing.
+	* Requires irq,ioport parameter.
+	* Much more.
+0.1: 
+	* Initial release, Tx not working.
